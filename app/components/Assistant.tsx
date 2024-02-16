@@ -16,6 +16,7 @@ function Assistant() {
 
   // State
   const [creating, setCreating] = useState(false);
+  const [retrieving, setRetrieving] = useState(false);
   const [modifying, setModifying] = useState(false);
   const [listing, setListing] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -42,6 +43,27 @@ function Assistant() {
     }
   };
 
+  const handleRetrieve = async () => {
+    setRetrieving(true);
+    try {
+      const response = await axios.get<{ assistant: Assistant }>(
+        "/api/assistant/retrieve"
+      );
+
+      const newAssistant = response.data.assistant;
+      console.log("newAssistant", newAssistant);
+      setAssistant(newAssistant);
+      localStorage.setItem("assistant", JSON.stringify(newAssistant));
+      toast.success("Successfully retrieved assistant", {
+        position: "bottom-center",
+      });
+    } catch (error) {
+      console.log("error", error);
+      toast.error("Error retrieving assistant", { position: "bottom-center" });
+    } finally {
+      setRetrieving(false);
+    }
+  };
   const handleModify = async () => {
     setModifying(true);
     try {
@@ -112,6 +134,9 @@ function Assistant() {
       <div className="flex flex-row gap-x-4 w-full">
         <Button onClick={handleCreate}>
           {creating ? "Creating..." : "Create"}
+        </Button>
+        <Button onClick={handleRetrieve}>
+          {retrieving ? "Retrieving..." : "Retrieve"}
         </Button>
         <Button onClick={handleModify} disabled={!assistant || !file}>
           {modifying ? "Modifying..." : "Modify"}
