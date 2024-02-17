@@ -65,13 +65,13 @@ function Thread() {
 
   return (
     <div className="flex flex-col mb-8">
-      <h1 className="text-4xl font-semibold mb-4">Conversation Thread</h1>
+      {/* <h1 className="text-4xl font-semibold mb-4">Conversation Thread</h1> */}
       <div className="flex flex-row gap-x-4 w-full">
         <Button onClick={handleCreate}>
-          {creating ? "Creating..." : "Create"}
+          {creating ? "Creating..." : "Start Conversation"}
         </Button>
         <Button onClick={handleDelete} disabled={!thread}>
-          {deleting ? "Deleting..." : "Delete"}
+          {deleting ? "Deleting..." : "End Conversation"}
         </Button>
       </div>
     </div>

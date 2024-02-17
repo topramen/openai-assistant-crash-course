@@ -136,7 +136,7 @@ function Assistant() {
           {creating ? "Creating..." : "Create"}
         </Button> */}
         <Button onClick={handleRetrieve}>
-          {retrieving ? "Retrieving..." : "Retrieve"}
+          {retrieving ? "Retrieving..." : "Load Assistant"}
         </Button>
         {/* <Button onClick={handleModify} disabled={!assistant || !file}>
           {modifying ? "Modifying..." : "Modify"}
