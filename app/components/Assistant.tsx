@@ -130,21 +130,21 @@ function Assistant() {
 
   return (
     <div className="flex flex-col mb-8">
-      <h1 className="text-4xl font-semibold mb-4">Assistant</h1>
+      <h1 className="text-4xl font-semibold mb-4">Resume Skimming Assistant</h1>
       <div className="flex flex-row gap-x-4 w-full">
-        <Button onClick={handleCreate}>
+        {/* <Button onClick={handleCreate}>
           {creating ? "Creating..." : "Create"}
-        </Button>
+        </Button> */}
         <Button onClick={handleRetrieve}>
           {retrieving ? "Retrieving..." : "Retrieve"}
         </Button>
-        <Button onClick={handleModify} disabled={!assistant || !file}>
+        {/* <Button onClick={handleModify} disabled={!assistant || !file}>
           {modifying ? "Modifying..." : "Modify"}
         </Button>
         <Button onClick={handleList}>{listing ? "Listing..." : "List"}</Button>
         <Button onClick={handleDelete} disabled={!assistant}>
           {deleting ? "Deleting..." : "Delete"}
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

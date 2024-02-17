@@ -4,6 +4,8 @@ import { useAtom } from "jotai";
 import { ThreadMessage } from "openai/resources/beta/threads/messages/messages.mjs";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import Run from "./Run";
+import Thread from "./Thread";
 
 function ChatContainer() {
   // Atom State
@@ -74,8 +76,10 @@ function ChatContainer() {
 
   return (
     <div className="flex flex-col w-full h-full max-h-screen rounded-lg border-blue-200 border-solid border-2 p-10">
+      <Thread />
+
       {/* Messages */}
-      <div className="flex flex-col h-full max-h-[calc(100vh-400px)] overflow-y-auto border-blue-200 border-solid border-2 p-6 rounded-lg">
+      <div className="flex flex-col h-full max-h-[calc(400vh-400px)] overflow-y-auto border-blue-200 border-solid border-2 p-6 rounded-lg">
         {fetching && <div className="m-auto font-bold">Fetching messages.</div>}
         {!fetching && messages.length === 0 && (
           <div className="m-auto font-bold">No messages found for thread.</div>
@@ -111,9 +115,11 @@ function ChatContainer() {
             sendMessage();
           }}
         >
-          Send
+          Add Prompt
         </button>
+        
       </div>
+      <Run />
     </div>
   );
 }

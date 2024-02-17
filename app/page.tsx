@@ -34,14 +34,14 @@ export default function Home() {
       if (localAssistant) {
         setAssistant(JSON.parse(localAssistant));
       }
-      const localFile = localStorage.getItem("file");
-      if (localFile) {
-        setFile(localFile);
-      }
-      const localAssistantFile = localStorage.getItem("assistantFile");
-      if (localAssistantFile) {
-        setAssistantFile(localAssistantFile);
-      }
+      // const localFile = localStorage.getItem("file");
+      // if (localFile) {
+      //   setFile(localFile);
+      // }
+      // const localAssistantFile = localStorage.getItem("assistantFile");
+      // if (localAssistantFile) {
+      //   setAssistantFile(localAssistantFile);
+      // }
       const localThread = localStorage.getItem("thread");
       if (localThread) {
         setThread(JSON.parse(localThread));
@@ -64,12 +64,9 @@ export default function Home() {
         {/* Actions */}
         <div className="flex flex-col w-full">
           <Assistant />
-          <AssistantFile />
-          <Thread />
-          <Run />
-        </div>
-        {/* Chat */}
-        <div className="w-full">
+          {/* <AssistantFile /> */}
+          {/* <Thread />
+          <Run /> */}
           <ChatContainer />
         </div>
       </div>

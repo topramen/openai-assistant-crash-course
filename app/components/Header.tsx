@@ -25,14 +25,14 @@ function Header() {
         <span>Assistant:</span>
         <span className="text-blue-500 text-xs">{assistant?.id}</span>
       </div>
-      <div className="flex-1 flex flex-col items-center">
+      {/* <div className="flex-1 flex flex-col items-center">
         <span>File:</span>
         <span className="text-blue-500 text-xs">{file}</span>
       </div>
       <div className="flex-1 flex flex-col items-center">
         <span>Assistant File:</span>
         <span className="text-blue-500 text-xs">{assistantFile}</span>
-      </div>
+      </div> */}
       <div className="flex-1 flex flex-col items-center">
         <span>Thread:</span>
         <span className="text-blue-500 text-xs">{thread?.id}</span>
