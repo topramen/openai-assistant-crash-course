@@ -6,7 +6,7 @@ export async function GET() {
     const openai = new OpenAI();
 
     try {
-        const assistantId = Core.readEnv('OPENAI_API_KEY') || '';
+        const assistantId = Core.readEnv('ASSISTANT_ID') || '';
         const assistant = await openai.beta.assistants.retrieve(assistantId);
 
         console.log(assistant);
