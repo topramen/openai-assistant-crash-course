@@ -55,7 +55,7 @@ export default function Home() {
         setRunState(localRunState);
       }
     }
-  }, []);
+  }, [setAssistant, setRun, setRunState, setThread]);
 
   return (
     <main className="flex flex-col">
