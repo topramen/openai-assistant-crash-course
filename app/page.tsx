@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const localAssistant = localStorage.getItem("assistant");
-      if (localAssistant) {
+      if (localAssistant !== "undefined" && localAssistant) {
         setAssistant(JSON.parse(localAssistant));
       }
       // const localFile = localStorage.getItem("file");
