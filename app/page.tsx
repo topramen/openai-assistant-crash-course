@@ -43,15 +43,15 @@ export default function Home() {
       //   setAssistantFile(localAssistantFile);
       // }
       const localThread = localStorage.getItem("thread");
-      if (localThread) {
+      if (localThread !== "undefined" && localThread) {
         setThread(JSON.parse(localThread));
       }
       const localRun = localStorage.getItem("run");
-      if (localRun) {
+      if (localRun !== "undefined" && localRun) {
         setRun(JSON.parse(localRun));
       }
       const localRunState = localStorage.getItem("runState");
-      if (localRunState && isValidRunState(localRunState)) {
+      if (localRunState !== "undefined" && localRunState && isValidRunState(localRunState)) {
         setRunState(localRunState);
       }
     }
