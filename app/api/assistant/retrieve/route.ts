@@ -3,10 +3,11 @@ import OpenAI from "openai";
 import * as Core from "openai/core"
 
 export async function GET() {
-    const openai = new OpenAI();
+    const assistantId = Core.readEnv('ASSISTANT_ID') || '';
+    const openai = new OpenAI({apiKey: assistantId});
 
     try {
-        const assistantId = Core.readEnv('ASSISTANT_ID') || '';
+        // const assistantId = Core.readEnv('ASSISTANT_ID') || '';
         const assistant = await openai.beta.assistants.retrieve(assistantId);
 
         console.log(assistant);
