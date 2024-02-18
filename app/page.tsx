@@ -46,16 +46,16 @@ export default function Home() {
       if (localThread !== "undefined" && localThread) {
         setThread(JSON.parse(localThread));
       }
-      const localRun = localStorage.getItem("run");
-      if (localRun !== "undefined" && localRun) {
-        setRun(JSON.parse(localRun));
-      }
+      // const localRun = localStorage.getItem("run");
+      // if (localRun !== "undefined" && localRun) {
+      //   setRun(JSON.parse(localRun));
+      // }
       const localRunState = localStorage.getItem("runState");
       if (localRunState !== "undefined" && localRunState && isValidRunState(localRunState)) {
         setRunState(localRunState);
       }
     }
-  }, [setAssistant, setRun, setRunState, setThread]);
+  }, [setAssistant, setThread, setRunState]);
 
   return (
     <main className="flex flex-col">
