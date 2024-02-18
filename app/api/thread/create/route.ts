@@ -1,8 +1,9 @@
 import OpenAI from "openai";
+import * as Core from "openai/core"
 
 export async function GET() {
-  const openai = new OpenAI();
-
+  const assistantId = process.env.ASSISTANT_ID || '';
+  const openai = new OpenAI({apiKey: assistantId});
   try {
     const thread = await openai.beta.threads.create();
 

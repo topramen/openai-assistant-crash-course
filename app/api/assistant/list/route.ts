@@ -1,21 +1,21 @@
-import OpenAI from "openai";
+// import OpenAI from "openai";
 
-export async function GET() {
-  const openai = new OpenAI();
+// export async function GET() {
+//   const openai = new OpenAI();
 
-  try {
-    const response = await openai.beta.assistants.list({
-      order: "desc",
-      limit: 10,
-    });
+//   try {
+//     const response = await openai.beta.assistants.list({
+//       order: "desc",
+//       limit: 10,
+//     });
 
-    const assistants = response.data;
+//     const assistants = response.data;
 
-    console.log(assistants);
+//     console.log(assistants);
 
-    return Response.json({ assistants: assistants });
-  } catch (e) {
-    console.log(e);
-    return Response.json({ error: e });
-  }
-}
+//     return Response.json({ assistants: assistants });
+//   } catch (e) {
+//     console.log(e);
+//     return Response.json({ error: e });
+//   }
+// }
