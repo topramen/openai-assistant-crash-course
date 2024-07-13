@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { IncomingForm } from "formidable";
 import OpenAI from "openai";
 import { createReadStream } from "fs";
+import * as Core from "openai/core"
 
 export const config = {
   api: {
@@ -37,7 +38,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       // Create a ReadStream from the file
       const fileStream = createReadStream(file.filepath);
 
-      const openai = new OpenAI();
+      const apiKey = Core.readEnv('OPENAI_API_KEY') || '';
+      const openai = new OpenAI({apiKey: apiKey});
       const response = await openai.files.create({
         file: fileStream, // Use the ReadStream for uploading
         purpose: "assistants",

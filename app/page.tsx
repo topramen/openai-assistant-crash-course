@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const localAssistant = localStorage.getItem("assistant");
-      if (localAssistant) {
+      if (localAssistant !== "undefined" && localAssistant) {
         setAssistant(JSON.parse(localAssistant));
       }
       // const localFile = localStorage.getItem("file");
@@ -43,19 +43,19 @@ export default function Home() {
       //   setAssistantFile(localAssistantFile);
       // }
       const localThread = localStorage.getItem("thread");
-      if (localThread) {
+      if (localThread !== "undefined" && localThread) {
         setThread(JSON.parse(localThread));
       }
-      const localRun = localStorage.getItem("run");
-      if (localRun) {
-        setRun(JSON.parse(localRun));
-      }
+      // const localRun = localStorage.getItem("run");
+      // if (localRun !== "undefined" && localRun) {
+      //   setRun(JSON.parse(localRun));
+      // }
       const localRunState = localStorage.getItem("runState");
-      if (localRunState && isValidRunState(localRunState)) {
+      if (localRunState !== "undefined" && localRunState && isValidRunState(localRunState)) {
         setRunState(localRunState);
       }
     }
-  }, []);
+  }, [setAssistant, setThread, setRunState]);
 
   return (
     <main className="flex flex-col">
